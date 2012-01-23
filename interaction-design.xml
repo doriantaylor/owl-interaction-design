@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="/transform"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+      xmlns:owl="http://www.w3.org/2002/07/owl#"
+      xmlns:dc="http://purl.org/dc/terms/"
+      xmlns:bibo="http://purl.org/ontology/bibo/"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:event="http://purl.org/NET/c4dm/event.owl#"
+      xmlns:pm="http://privatealpha.com/ontology/process-model/1#"
+      xmlns:ixd="http://privatealpha.com/ontology/interaction-design/1#"
+      version="XHTML+RDFa 1.0" xml:lang="en">
+  <head>
+    <title about="#" property="dc:title">PrivateAlpha Interaction Design</title>
+    <base href="http://privatealpha.com/ontology/interaction-design/1"/>
+    <link about="#" rel="rdfs:isDefinedBy bibo:uri" href="#"/>
+  </head>
+  <body>
+    <div about="#" typeof="owl:Ontology bibo:Webpage">
+      <div property="rdfs:comment">
+        <p>This is the ontology for interaction design.</p>
+        <p><a rel="external owl:imports" href="http://purl.org/NET/c4dm/event.owl#">Event Ontology</a></p>
+      </div>
+    </div>
+    <div id="Persona" about="[ixd:Persona]" typeof="owl:Class">
+      <h2 property="rdfs:label">Persona</h2>
+      <p property="rdfs:comment">A persona is like a fake person, and stuff.</p>
+      <dl>
+        <dt>Subclass of:</dt>
+        <dd><a rel="external rdfs:subClassOf" href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a></dd>
+      </dl>
+    </div>
+    <div id="Scenario" about="[ixd:Scenario]" typeof="owl:Class">
+      <h2 property="rdfs:label">Scenario</h2>
+      <p property="rdfs:comment">A scenario is a story that is about personas.</p>
+      <dl>
+        <dt>Subclass of:</dt>
+        <dd><a rel="external rdfs:subClassOf" href="http://purl.org/ontology/bibo/Document">bibo:Document</a></dd>
+      </dl>
+    </div>
+    <div id="objective" about="[ixd:objective]" typeof="owl:ObjectProperty">
+      <h2 property="rdfs:label">objective</h2>
+      <p property="rdfs:comment">Personas have objectives.</p>
+      <dl>
+        <dt>Domain:</dt>
+        <dd><a rel="rdfs:domain" href="#Persona">ixd:Persona</a></dd>
+      </dl>
+    </div>
+  </body>
+</html>
