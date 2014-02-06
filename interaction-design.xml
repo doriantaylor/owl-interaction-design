@@ -5,48 +5,139 @@
       xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
       xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
       xmlns:owl="http://www.w3.org/2002/07/owl#"
-      xmlns:dc="http://purl.org/dc/terms/"
+      xmlns:dct="http://purl.org/dc/terms/"
+      xmlns:dctype="http://purl.org/dc/dcmitype/"
       xmlns:bibo="http://purl.org/ontology/bibo/"
       xmlns:foaf="http://xmlns.com/foaf/0.1/"
-      xmlns:event="http://purl.org/NET/c4dm/event.owl#"
+      xmlns:ev="http://purl.org/NET/c4dm/event.owl#"
+      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
       xmlns:pm="http://privatealpha.com/ontology/process-model/1#"
       xmlns:ixd="http://privatealpha.com/ontology/interaction-design/1#"
       version="XHTML+RDFa 1.0" xml:lang="en">
   <head>
-    <title about="#" property="dc:title">PrivateAlpha Interaction Design</title>
+    <title about="#" property="dc:title">Interaction Design Ontology</title>
     <base href="http://privatealpha.com/ontology/interaction-design/1"/>
     <link about="#" rel="rdfs:isDefinedBy bibo:uri" href="#"/>
   </head>
   <body>
     <div about="#" typeof="owl:Ontology bibo:Webpage">
-      <div property="rdfs:comment">
-        <p>This is the ontology for interaction design.</p>
-        <p><a rel="external owl:imports" href="http://purl.org/NET/c4dm/event.owl#">Event Ontology</a></p>
-      </div>
+      <dl>
+        <dt>Author</dt>
+        <dd><a href="http://doriantaylor.com/person/dorian-taylor#me" rel="external dct:creator"><span property="foaf:name">Dorian Tay­lor</span></a></dd>
+        <dt>Created</dt>
+        <dd content="2012-01-23T11:52:51-0800" datatype="xsd:dateTime" property="dct:created">January 23, 2012</dd>
+        <dt>Updated</dt>
+        <dd content="2013-12-18T03:37:34Z" datatype="xsd:dateTime" property="dct:modified">December 18, 2013</dd>
+      </dl>
+      <p property="rdfs:comment">This vocabulary defines a number of concepts peculiar to interaction design which are not accounted for by other vocabularies.</p>
+      <p>The purpose of the interaction design ontology is to codify a model for the set of artifacts and relationships between them that are used to take a project from a pile of stakeholder requirements and user research to a distinct set of interactions and interfaces to be designed. </p>
+      <p>The interaction design ontology unifies and extends the following vocabularies:</p>
+      <ul>
+        <li><a rel="external owl:imports" href="http://xmlns.com/foaf/0.1/">FOAF</a></li>
+
+        <li><a rel="external owl:imports" href="http://purl.org/NET/c4dm/event.owl#">Event Ontology</a></li>
+        <li><a rel="external owl:imports" href="http://purl.org/dc/dcmitype/">DCMI Types</a></li>
+        <li><a rel="external owl:imports" href="http://www.w3.org/2004/02/skos/core#">SKOS</a></li>
+        <li><a rel="external owl:imports" href="http://purl.org/ontology/bibo/">The Bibliographic Ontology</a></li>
+      </ul>
+      <p>As with the other vocabularies on this site, the canonical representation is the machine-readable data embedded into this specification. It is also, however, available in <a rel="dct:hasFormat" href="1.rdf">RDF/XML</a> and <a rel="dct:hasFormat" href="1.n3">N3</a> formats.</p>
     </div>
+
+    <h2>Classes</h2>
+    <h3>Personas and Scenarios</h3>
+    <p>The overarching purpose of the scenario and persona classes is to be able to pick them out from larger pools of documents or representations of agents. This way it's possible to mix real people and organizations into scenarios with fake personas and still be able to tell them apart.</p>
     <div id="Persona" about="[ixd:Persona]" typeof="owl:Class">
-      <h2 property="rdfs:label">Persona</h2>
-      <p property="rdfs:comment">A persona is like a fake person, and stuff.</p>
+      <h4 property="rdfs:label">Persona</h4>
+      <p property="rdfs:comment">A persona is a fictional agent for use in interaction design scenarios.</p>
+      <blockquote class="note">
+        <p property="skos:note">ixd:Persona is a decorator class for instances of other foaf:Agent classes. Use this class in conjunction with something like foaf:Person or org:FormalOrganization to denote that it is fictional.</p>
+      </blockquote>
       <dl>
         <dt>Subclass of:</dt>
         <dd><a rel="external rdfs:subClassOf" href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a></dd>
       </dl>
+      <p><a href="#" rel="rdfs:isDefinedBy">Back to Top</a></p>
     </div>
     <div id="Scenario" about="[ixd:Scenario]" typeof="owl:Class">
-      <h2 property="rdfs:label">Scenario</h2>
-      <p property="rdfs:comment">A scenario is a story that is about personas.</p>
+      <h4 property="rdfs:label">Scenario</h4>
+      <p property="rdfs:comment">A scenario is a document that depicts the steps toward the achievement of one or more user goals.</p>
       <dl>
         <dt>Subclass of:</dt>
-        <dd><a rel="external rdfs:subClassOf" href="http://purl.org/ontology/bibo/Document">bibo:Document</a></dd>
+        <dd><a rel="external rdfs:subClassOf" href="http://xmlns.com/foaf/0.1/Document">foaf:Document</a></dd>
       </dl>
+      <p><a href="#" rel="rdfs:isDefinedBy">Back to Top</a></p>
     </div>
+    <div id="Vignette" about="[ixd:Vignette]" typeof="owl:Class">
+      <h4 property="rdfs:label">Vignette</h4>
+      <p property="rdfs:comment">A vignette is a short part of a scenario that isolates one single interaction.</p>
+      <dl>
+        <dt>Subclass of:</dt>
+        <dd><a rel="external rdfs:subClassOf" href="http://purl.org/ontology/bibo/DocumentPart">bibo:DocumentPart</a></dd>
+      </dl>
+      <p><a href="#" rel="rdfs:isDefinedBy">Back to Top</a></p>
+    </div>
+    <div id="Branch" about="[ixd:Branch]" typeof="owl:Class">
+      <h4 property="rdfs:label">Branch</h4>
+      <p property="rdfs:comment">A branch represents a potential change in state in the scenario, such as the user making a choice, or some exogenous event.</p>
+      <p><a href="#" rel="rdfs:isDefinedBy">Back to Top</a></p>
+    </div>
+    <h3>Interactions and Interfaces</h3>
+    <p>The purpose of a scenario is to distill out the interactions, so we can further distill those interactions into interfaces, from which we can extrapolate technical entailments, and finally, construct the result.</p>
+    <div id="Interaction" about="[ixd:Interaction]" typeof="owl:Class">
+      <h4 property="rdfs:label">Interaction</h4>
+      <p property="rdfs:comment">An interaction is a particular kind of event wherein an agent uses an interface to change the state of a system.</p>
+      <dl>
+        <dt>Subclass of:</dt>
+        <dd><a rel="external rdfs:subClassOf" href="http://purl.org/NET/c4dm/event.owl#Event">ev:Event</a></dd>
+      </dl>
+      <p><a href="#" rel="rdfs:isDefinedBy">Back to Top</a></p>
+    </div>
+    <div id="Interface" about="[ixd:Interface]" typeof="owl:Class">
+      <h4 property="rdfs:label">Interface</h4>
+      <p property="rdfs:comment">An interface is some kind of artifact that mediates interactions.</p>
+      <blockquote>
+        <p property="skos:note">It is conceivable that ixd:Interface could be used to describe, in addition to software user interfaces: ABIs, APIs, file formats, protocols, natural languages, and physical interfaces that genuinely have to do with physics, like electrical plugs.</p>
+      </blockquote>
+      <dl>
+        <dt>Subclass of:</dt>
+        <dd><a rel="external rdfs:subClassOf" href="http://purl.org/dc/dcmitype/InteractiveResource">dctype:InteractiveResource</a></dd>
+      </dl>
+      <p><a href="#" rel="rdfs:isDefinedBy">Back to Top</a></p>
+    </div>
+    <h3>States and Goals</h3>
+    <p>These are good candidates to be yanked out and put into the generic <a href="../process-model/1#">process model ontology</a> I'm working on.</p>
+    <div id="State" about="[ixd:State]" typeof="owl:Class">
+      <h4 property="rdfs:label">State</h4>
+      <p property="rdfs:comment">A state is a particular condition of a given system at a given instant.</p>
+      <dl>
+        <dt>Subclass of:</dt>
+        <dd><a rel="external rdfs:subClassOf" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
+      </dl>
+      <p><a href="#" rel="rdfs:isDefinedBy">Back to Top</a></p>
+    </div>
+    <div id="Goal" about="[ixd:Goal]" typeof="owl:Class">
+      <h4 property="rdfs:label">Goal</h4>
+      <p property="rdfs:comment">A goal is a particular kind of state that an associated agent may be trying to achieve.</p>
+      <dl>
+        <dt>Subclass of:</dt>
+        <dd><a rel="rdfs:subClassOf" href="#State">ixd:State</a></dd>
+      </dl>
+      <p><a href="#" rel="rdfs:isDefinedBy">Back to Top</a></p>
+    </div>
+    <h2>Properties</h2>
+    <p>Ain't got none yet.</p>
+      <blockquote>
+        <p property="skos:note">Should we have ixd:material-context and ixd:incidental-context? A material context would be one that is necessary to complete an interaction, whereas an incidental context would be one that was chosen for the narrative continuity of the scenario. Furthermore, contexts like "at the office" or "using smartphone" could be reused in both material and incidental castings, even across different vignettes in the same scenario.</p>
+      </blockquote>
+    <!--
     <div id="objective" about="[ixd:objective]" typeof="owl:ObjectProperty">
-      <h2 property="rdfs:label">objective</h2>
+      <h4 property="rdfs:label">objective</h4>
       <p property="rdfs:comment">Personas have objectives.</p>
       <dl>
         <dt>Domain:</dt>
         <dd><a rel="rdfs:domain" href="#Persona">ixd:Persona</a></dd>
       </dl>
-    </div>
+      <p><a href="#" rel="rdfs:isDefinedBy">Back to Top</a></p>
+    </div>-->
   </body>
 </html>
