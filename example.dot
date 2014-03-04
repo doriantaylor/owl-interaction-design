@@ -1,0 +1,82 @@
+digraph {
+    graph [bgcolor=transparent];
+    node [shape=box,color="#eeeeee",fontcolor="#eeeeee",fontname="Lucida Grande, Lucida Sans Unicode, sans-serif"];
+    edge [color="#eeeeee",fontcolor="#eeeeee",fontname="Lucida Grande, Lucida Sans Unicode, sans-serif"];
+    ixd_Persona [label="ixd:Persona"];
+    ixd_Scenario [label="ixd:Scenario"];
+    ixd_Vignette [label="ixd:Vignette"];
+    ixd_Branch   [label="ixd:Branch"];
+    ixd_Interaction [label="ixd:Interaction"];
+    ixd_Interface [label="ixd:Interface"];
+    
+    subgraph {
+        node [style=dashed];
+        dct_InteractiveResource [label="dct:InteractiveResource"];
+        foaf_Agent [label="foaf:Agent"];
+        foaf_Document [label="foaf:Document"];
+        bibo_DocumentPart [label="bibo:DocumentPart"];
+        pm_Goal [label="pm:Goal"];
+        pm_Action [label="pm:Action"];
+        pm_Task [label="pm:Task"];
+    }
+    
+    subgraph {
+        edge [label="rdfs:subClassOf", style=dashed];
+        ixd_Interface -> dct_InteractiveResource;
+        ixd_Persona -> foaf_Agent;
+        ixd_Scenario -> foaf_Document;
+        ixd_Vignette -> bibo_DocumentPart;
+        ixd_Interaction -> pm_Action;
+        pm_Task -> pm_Action;
+    }
+    ixd_Scenario -> ixd_Vignette [label="dc:hasPart", style=dashed];
+    ixd_Persona -> pm_Goal [label="pm:desires", style=dashed];
+    
+    /*
+    owl_Thing [label="owl:Thing", style=dashed];
+    skos_Concept [label="skos:Concept", style=dashed];
+    ibis_Issue [label="ibis:Issue"];
+    ibis_Position [label="ibis:Position"];
+    ibis_Argument [label="ibis:Argument"];
+    */
+    /*
+    subgraph {
+        edge [fontsize=10,concentrate=true];
+        ibis_Issue -> ibis_Issue [label="ibis:specializes"];
+        ibis_Issue -> ibis_Issue [label="ibis:generalizes"];
+        ibis_Issue -> ibis_Issue [label="ibis:replaces"];
+        //ibis_Issue -> ibis_Issue [label="ibis:generalizes"];
+        
+        subgraph {
+            edge [label="rdfs:subClassOf", style=dashed];
+            ibis_Issue -> skos_Concept;
+            ibis_Position -> skos_Concept;
+            ibis_Argument -> ibis_Issue;
+        }
+        
+        subgraph {
+            edge [label="ibis:endorses"];
+            foaf_Agent -> ibis_Issue;
+            foaf_Agent -> ibis_Position;
+            foaf_Agent -> ibis_Argument;
+        }
+
+        subgraph {
+            edge [label="ibis:questions"];
+            ibis_Issue -> ibis_Argument
+            ibis_Issue -> ibis_Position
+            ibis_Issue -> ibis_Issue;
+        }
+        subgraph {
+            edge [label="ibis:suggests"];
+            ibis_Position -> ibis_Issue;
+            ibis_Argument -> ibis_Issue;
+            ibis_Issue    -> ibis_Issue;
+        }
+        ibis_Issue -> owl_Thing [label="ibis:concerns"];
+        ibis_Position -> ibis_Issue [label="ibis:responds-to"];
+        ibis_Argument -> ibis_Position [label="ibis:supports"];
+        ibis_Argument -> ibis_Position [label="ibis:opposes"];
+    }
+    */
+}
