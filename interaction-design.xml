@@ -13,12 +13,12 @@
       xmlns:ev="http://purl.org/NET/c4dm/event.owl#"
       xmlns:skos="http://www.w3.org/2004/02/skos/core#"
       xmlns:vann="http://purl.org/vocab/vann/"
-      xmlns:pm="http://privatealpha.com/ontology/process-model/1#"      
-      xmlns:ixd="http://privatealpha.com/ontology/interaction-design/1#"
+      xmlns:pm="https://privatealpha.com/ontology/process-model/1#"      
+      xmlns:ixd="https://privatealpha.com/ontology/interaction-design/1#"
       version="XHTML+RDFa 1.0" xml:lang="en">
   <head>
     <title about="#" property="dc:title">An Interaction Design Ontology</title>
-    <base href="http://privatealpha.com/ontology/interaction-design/1"/>
+    <base href="https://privatealpha.com/ontology/interaction-design/1"/>
     <link about="#" rel="rdfs:isDefinedBy bibo:uri" href="#"/>
   </head>
   <body typeof="bibo:Webpage">
@@ -32,7 +32,7 @@
         <dt>Updated</dt>
         <dd content="2013-12-18T03:37:34Z" datatype="xsd:dateTime" property="dct:modified">December 18, 2013</dd>
         <dt>Namespace URI</dt>
-        <dd><a href="#">http://privatealpha.com/ontology/interaction-design/1#</a></dd>
+        <dd><a href="#">https://privatealpha.com/ontology/interaction-design/1#</a></dd>
         <dt>Preferred Namespace Prefix</dt>
         <dd about="#" property="vann:preferredNamespacePrefix" datatype="xsd:string">ixd</dd>
       </dl>
@@ -42,7 +42,7 @@
       <p>The purpose of the interaction design ontology is to codify a model for the set of artifacts and relationships between them that are used to take a project from a pile of stakeholder requirements and user research to a distinct set of interactions and interfaces to be designed. </p>
       <p>The interaction design ontology unifies and extends the following vocabularies:</p>
       <ul>
-        <li><a rel="owl:imports" href="http://privatealpha.com/ontology/process-model/1#">A Process Model Ontology</a></li>
+        <li><a rel="owl:imports" href="https://privatealpha.com/ontology/process-model/1#">A Process Model Ontology</a></li>
         <li><a rel="external owl:imports" href="http://xmlns.com/foaf/0.1/">FOAF</a></li>
         <li><a rel="external owl:imports" href="http://purl.org/ontology/bibo/">The Bibliographic Ontology</a></li>
         <li><a rel="external owl:imports" href="http://purl.org/dc/dcmitype/">DCMI Types</a></li>
@@ -95,7 +95,7 @@
       <p property="rdfs:comment">An interaction is a particular kind of event wherein an agent uses an interface to change the state of a system.</p>
       <dl>
         <dt>Subclass of:</dt>
-        <dd><a rel="external rdfs:subClassOf" href="http://privatealpha.com/ontology/process-model/1#">pm:Action</a></dd>
+        <dd><a rel="external rdfs:subClassOf" href="https://privatealpha.com/ontology/process-model/1#">pm:Action</a></dd>
       </dl>
       <p><a href="#" rel="rdfs:isDefinedBy">Back to Top</a></p>
     </div>
